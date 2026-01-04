@@ -1,12 +1,13 @@
 {% set name = "dsm2dtm" %}
 {% set version = "0.3.0" %}
+{% set python_min = "3.12" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: be2368e13abbb3a6397e4040369c64e6e3ed88f3694e3d9b431dc7be082ecf71
 
 build:
@@ -16,11 +17,11 @@ build:
 
 requirements:
   host:
-    - python >=3.12
+    - python {{ python_min }}
     - pip
     - setuptools >=61.0
   run:
-    - python >=3.12
+    - python >={{ python_min }}
     - numpy
     - rasterio
     - scipy
@@ -34,6 +35,7 @@ test:
     - pip check
     - dsm2dtm --help
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
@@ -48,4 +50,3 @@ extra:
   recipe-maintainers:
     - seedlit
     - r1j1t
-    
