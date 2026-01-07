@@ -1,6 +1,6 @@
 {% set name = "dsm2dtm" %}
-{% set version = "0.3.0" %}
-{% set python_min = "3.12" %}
+{% set version = "0.3.1" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +8,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: be2368e13abbb3a6397e4040369c64e6e3ed88f3694e3d9b431dc7be082ecf71
+  sha256: a10f9ff40998d9d21284dd9f9cee45a048a868cced88162b806351754d6e2a9f
 
 build:
   noarch: python
-  number: 2
+  number: 3
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
