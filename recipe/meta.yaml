@@ -1,5 +1,5 @@
 {% set name = "dsm2dtm" %}
-{% set version = "0.3.1" %}
+{% set version = "0.4.0" %}
 {% set python_min = "3.11" %}
 
 package:
@@ -7,12 +7,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f4ef30fb4fc17438ded8da88f560a0cfbdbd47eb94c43bdabc43dff5a86c6932
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 7a8acfad6e5ea1127b37069ba92931edf5275fb707a626906c125da8bee851aa
 
 build:
   noarch: python
-  number: 3
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -22,11 +22,10 @@ requirements:
     - setuptools >=61.0
   run:
     - python >={{ python_min }}
-    - numpy
-    - rasterio
-    - scipy
-    - scikit-image
-    - pyproj
+    - numpy >=1.21
+    - rasterio >=1.3
+    - scipy >=1.8
+    - pyproj >=3.4
 
 test:
   imports:
